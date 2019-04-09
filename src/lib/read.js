@@ -7,6 +7,11 @@ const readFile = promisify(fs.readFile);
 
 const events = require('../events/events.js');
 
+/**
+ * @function
+ * @name read
+ * @param file {path} The path to a file on the filesystem
+ **/
 const read = file => {
   events.emit('read', file);
   return readFile(file);
