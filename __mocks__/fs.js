@@ -10,12 +10,12 @@ exports.readFile = (file, cb) => {
   }
 };
 
-exports.writeFile = (file, data, cb) => {
-  if (file.match(/bad/i)) {
+exports.writeFile = (file, buffer, cb) => {
+  if (!file || file.match(/bad/i)) {
     cb('Invalid File');
-  } else if (data.includes('bad')) {
-    cb('Invalid Data');
+  } else if (!Buffer.isBuffer(buffer) || buffer.includes('bad')) {
+    cb('Invalid buffer', undefined);
   } else {
-    cb(undefined, new Buffer.from('File Contents'));
+    cb(undefined, undefined);
   }
 };
