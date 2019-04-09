@@ -15,17 +15,15 @@ describe('`write` function', () => {
     expect(emit).toHaveBeenCalled();
   });
 
-  xit('resolves when given a good file', () => {
+  it('resolves when given a good file', () => {
     return expect(write(file, text)).resolves.toEqual(new Buffer.from('File Contents'));
   });
 
-  xit('rejects when given a bad file', () => {
+  it('rejects when given a bad file', () => {
     const badFile = 'bad.txt';
-    return write(badFile, text).then(result => {
-      return expect(result).rejects.toBe('Invalid File');
-    });
+    return expect(write(badFile, text)).rejects.toEqual('Invalid File');
   });
-  xit('rejects when given bad data', () => {
+  it('rejects when given bad data', () => {
     const badData = 'bad';
     return expect(write(file, badData)).rejects.toBe('Invalid Data');
   });
