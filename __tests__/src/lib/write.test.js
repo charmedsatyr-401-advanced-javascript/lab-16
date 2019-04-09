@@ -16,7 +16,7 @@ describe('`write` function', () => {
   });
 
   it('resolves when given a good file', () => {
-    return expect(write(file, text)).resolves.toEqual(new Buffer.from('File Contents'));
+    return expect(write(file, text)).resolves.toBeUndefined();
   });
 
   it('rejects when given a bad file', () => {
@@ -25,6 +25,6 @@ describe('`write` function', () => {
   });
   it('rejects when given bad data', () => {
     const badData = 'bad';
-    return expect(write(file, badData)).rejects.toBe('Invalid Data');
+    return expect(write(file, badData)).rejects.toBe('Invalid Buffer');
   });
 });

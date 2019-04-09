@@ -14,7 +14,7 @@ exports.writeFile = (file, buffer, cb) => {
   if (!file || file.match(/bad/i)) {
     cb('Invalid File');
   } else if (!Buffer.isBuffer(buffer) || buffer.includes('bad')) {
-    cb('Invalid buffer', undefined);
+    cb('Invalid Buffer', undefined);
   } else {
     cb(undefined, undefined);
   }
