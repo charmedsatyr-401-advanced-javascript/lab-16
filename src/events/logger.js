@@ -49,7 +49,7 @@ function handleAlter(payload) {
  * @param payload {object} An error object
  */
 function handleError(payload) {
-  throw payload;
+  console.error('Oops! You had the following error:', payload);
 }
 
 module.exports = { handleRead, handleUppercase, handleWrite, handleAlter, handleError };

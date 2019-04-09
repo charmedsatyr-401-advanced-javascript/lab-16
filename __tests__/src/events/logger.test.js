@@ -8,7 +8,8 @@ const {
   handleError,
 } = require('../../../src/events/logger.js');
 
-const log = jest.spyOn(global.console, 'log').mockImplementation(() => {});
+const log = jest.spyOn(global.console, 'log');
+const error = jest.spyOn(global.console, 'error');
 
 describe('`handleRead` function', () => {
   it('should log to the console', () => {
@@ -37,10 +38,11 @@ describe('`handleAlter` function', () => {
     handleAlter(file);
     expect(log).toHaveBeenCalled();
   });
-  describe('`handleAlter` function', () => {
-    it('should log to the console', () => {
-      const err = 'Ooops!';
-      expect(() => handleError(err)).toThrow(err);
-    });
+});
+describe('`handleError` function', () => {
+  it('should log to the console', () => {
+    const err = 'Ooops!';
+    handleError(err);
+    expect(error).toHaveBeenCalled();
   });
 });
