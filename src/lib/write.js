@@ -12,8 +12,12 @@ const events = require('../events/events.js');
  * @param data {buffer} The data to write to the file
  **/
 const write = (file, text) => {
-  events.emit('write', file);
-  return writeFile(file, Buffer.from(text));
+  try {
+    events.emit('write', file);
+    return writeFile(file, Buffer.from(text));
+  } catch (err) {
+    events.emit('error', err);
+  }
 };
 
 module.exports = write;

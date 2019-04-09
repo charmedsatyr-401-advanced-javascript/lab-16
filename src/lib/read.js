@@ -13,8 +13,12 @@ const events = require('../events/events.js');
  * @param file {path} The path to a file on the filesystem
  **/
 const read = file => {
-  events.emit('read', file);
-  return readFile(file);
+  try {
+    events.emit('read', file);
+    return readFile(file);
+  } catch (err) {
+    events.emit('error', err);
+  }
 };
 
 module.exports = read;
