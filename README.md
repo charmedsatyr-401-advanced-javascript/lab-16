@@ -94,12 +94,12 @@ This module reads a file and returns a Promise. It writes a `file` with the give
   * `npm run lint`
 * What assertions were made?
   * `alterFile` function
-    ✓ should call emit an event (5ms)
-    ✓ should call the `read` function on a `file` argument (1ms)
+    ✓ should call emit an event
+    ✓ should call the `read` function on a `file` argument
     ✓ should call the `uppercase` function
-    ✓ should call the `write` function (1ms)
+    ✓ should call the `write` function
   * `handleRead` function
-    ✓ should log to the console (2ms)
+    ✓ should log to the console
   * `handleUppercase` function
     ✓ should log to the console
   * `handleWrite` function
@@ -107,20 +107,25 @@ This module reads a file and returns a Promise. It writes a `file` with the give
   * `handleAlter` function
     ✓ should log to the console
   * `handleAlter` function
-    ✓ should log to the console (1ms)
+    ✓ should log to the console
   * `read` function
     ✓ should cause an event to be emitted
     ✓ resolves when given a good file
-    ✓ throws an error when given a bad file (1ms)
+    ✓ throws an error when given a bad file
   * `uppercase` function
-    ✓ should cause an event to be emitted (1ms)
+    ✓ should cause an event to be emitted
     ✓ should transform its argument text to uppercase
   * `write` function
-    ✓ should cause an event to be emitted (1ms)
+    ✓ should cause an event to be emitted
+    ✓ resolves when given a good file
+    ✓ rejects when given a bad file
+    ✓ rejects when given bad data
 
 * What assertions need to be / should be made?
-  * `alterFile`'s error handling should be tested.
-  * `writeFile` should resolve and reject appropriately.
+  * `app.js` line 22
+  * `read.js` line 20
+  * `uppercase.js` line 16
+  * `write.js` line 19
 
 #### UML
 Link to an image of the UML for your application and response to events
